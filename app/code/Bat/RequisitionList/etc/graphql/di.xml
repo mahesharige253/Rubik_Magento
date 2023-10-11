@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\RequisitionListGraphQl\Model\RequisitionList\Item\AddItemsToRequisitionList">
+        <plugin name="BatQuantityValidator"
+                type="Bat\RequisitionList\Plugin\AddProductRlQuantityValidator"/>
+    </type>
+     <type name="Magento\RequisitionListGraphQl\Model\Resolver\RequisitionList\DeleteItems">
+        <plugin name="BatDeleteItemQuantityValidate"
+                type="Bat\RequisitionList\Plugin\BatDeleteItemValidate"/>
+    </type>
+    <type name="Magento\RequisitionListGraphQl\Model\Resolver\RequisitionList\AddToCart">
+        <plugin name="BatAddCartQuantityValidator"
+                type="Bat\RequisitionList\Plugin\AddCartProductRlQuantityValidator"/>
+    </type>
+     <type name="Magento\RequisitionListGraphQl\Model\Resolver\RequisitionList\UpdateItems">
+        <plugin name="BatUpdateItemQuantityValidate"
+                type="Bat\RequisitionList\Plugin\UpdateItemValidate"/>
+    </type>
+    <type name="Magento\RequisitionListGraphQl\Model\Resolver\RequisitionList\CopyItems">
+        <plugin name="BatCopyitemsQuantityValidator"
+                type="Bat\RequisitionList\Plugin\BatCopyitemsValidator"/>
+    </type>
+     <type name="Magento\RequisitionList\Model\RequisitionListRepository">
+        <plugin name="CreateDuplicateRl"
+                type="Bat\RequisitionList\Plugin\CreateDuplicateRl"/>
+    </type>
+</config>

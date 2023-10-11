@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Bat\Rma\Api\RmaCreateInterface" type="Bat\Rma\Model\Api\CreateRma"/>
+    <preference for="Magento\Rma\Block\Adminhtml\Rma\Grid" type="Bat\Rma\Block\Adminhtml\Rma\Grid"/>
+    <preference for="Magento\Rma\Block\Adminhtml\Order\View\Tab\Rma" type="Bat\Rma\Block\Adminhtml\Order\View\Tab\Rma"/>
+    <preference for="Magento\Rma\Block\Adminhtml\Customer\Edit\Tab\Rma" type="Bat\Rma\Block\Adminhtml\Customer\Edit\Tab\CustomerRma"/>
+    <type name="Magento\RmaGraphQl\Model\Rma\RequestRma">
+        <plugin name="orderReturnRequest" type="Bat\Rma\Plugin\Model\Rma\RequestRma"/>
+    </type>
+</config>

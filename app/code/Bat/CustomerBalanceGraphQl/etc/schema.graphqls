@@ -1,0 +1,19 @@
+type Cart {
+    credit_customer: CreditDetails! @doc(description: "Credit Customer detail") @resolver(class: "Bat\\CustomerBalanceGraphQl\\Model\\Resolver\\CreditCustomer")
+    non_credit_customer: NonCreditDetails! @doc(description: "Non Credit Customer Payment detail") @resolver(class: "Bat\\CustomerBalanceGraphQl\\Model\\Resolver\\NonCreditCustomer")
+    is_credit_customer: Boolean @doc(description: "IsCreditCustomer status") @resolver(class: "Bat\\CustomerBalanceGraphQl\\Model\\Resolver\\IsCreditCustomer")
+    is_first_order: Boolean @doc(description: "isFirstOrder status") @resolver(class: "Bat\\CustomerBalanceGraphQl\\Model\\Resolver\\IsFirstOrder")
+    vba_details: VbaInfo @doc(description: "vba details") @resolver(class: "Bat\\CustomerBalanceGraphQl\\Model\\Resolver\\VbaDetails")
+    payment_deadline: String @doc(description: "payment deadline") @resolver(class: "Bat\\CustomerBalanceGraphQl\\Model\\Resolver\\PaymentDeadline")
+}
+
+type CreditDetails {
+    remaining_ar: String
+    overpayment: String
+    minimum_payment: String
+}
+
+type NonCreditDetails {
+    overpayment: String
+}
+

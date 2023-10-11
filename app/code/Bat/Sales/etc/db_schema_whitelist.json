@@ -1,0 +1,30 @@
+{
+    "sales_order": {
+        "column": {
+            "order_type": true,
+            "batch_id": true,
+            "updated_date": true,
+            "country_code": true,
+            "sap_order_number": true,
+            "sap_credit_status": true,
+            "sap_order_status": true,
+            "sap_country_code": true
+        }
+    },
+    "bat_eda_pending_orders": {
+        "column": {
+            "entity_id": true,
+            "order_id": true,
+            "order_sent": true,
+            "failure_attempts": true,
+            "order_type": true
+        },
+        "index": {
+            "BAT_EDA_PENDING_ORDERS_ENTITY_ID": true,
+            "BAT_EDA_PENDING_ORDERS_ORDER_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

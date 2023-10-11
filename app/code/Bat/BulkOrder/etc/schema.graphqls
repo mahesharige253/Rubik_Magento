@@ -1,0 +1,32 @@
+type Mutation {
+    validateAndCreateQuote(
+        orderItems: [ChildOutletData]
+    ): BulkOrderQuoteData
+        @resolver(
+            class: "\\Bat\\BulkOrder\\Model\\Resolver\\BulkOrderValidateData"
+        )
+        @doc(description: "Validate and create bulk order quote")
+} 
+
+input ChildOutletData {
+    outlet_id: String!
+    is_parent: Boolean
+    parent_outlet_id: String!
+    items : [ItemBulkData]
+} 
+
+input ItemBulkData {
+    sku: String!
+    quantity: Int!
+} 
+
+type BulkOrderQuoteData {
+    success: Boolean
+    error_message: [String]
+    bulkorder_data: [OutletCartData]
+} 
+
+type OutletCartData {
+    outlet_id: String
+    masked_cart_id: String
+}

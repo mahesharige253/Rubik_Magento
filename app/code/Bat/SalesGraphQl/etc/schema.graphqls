@@ -1,0 +1,93 @@
+type OrderTotal @doc(description: "Contains details about the sales total amounts used to calculate the final price.") {
+    remaining_ar: String @doc(description: "Credit customer remaining Ar") @resolver(class: "Bat\\SalesGraphQl\\Model\\Resolver\\RemainingAr")
+    overpayment: String @doc(description: "Customer advance payment.")  @resolver(class: "Bat\\SalesGraphQl\\Model\\Resolver\\Overpayment")
+    minimum_amount: String @doc(description: "Minimum Amount Which Customer Needs To Pay.")  @resolver(class: "Bat\\SalesGraphQl\\Model\\Resolver\\MinimumAmount")
+}
+ 
+type DeliveryDetails {
+    delivery_date: String
+    tracking_number: String
+    tracking_url: String 
+}
+
+type ReturnDetails {
+    return_date: String
+    tracking_number: String
+    tracking_url: String
+}
+
+type OrderAmountNetVatOutput {
+    net: String
+    vat: String
+    total: String 
+}    
+
+type Customer {
+    orders (
+        filter: CustomerOrdersFilterInput @doc(description: "Defines the filter to use for searching customer orders."),
+        currentPage: Int = 1 @doc(description: "Specifies which page of results to return. The default value is 1."),
+        pageSize: Int = 5 @doc(description: "Specifies the maximum number of results to return at once. The default value is 20."),
+        sort: CustomerOrderSortInput @doc(description: "Specifies which field to sort on, and whether to return the results in ascending or descending order.")
+        scope: ScopeTypeEnum @doc(description: "Specifies the scope to search for customer orders. The Store request header identifies the customer's store view code. The default value of STORE limits the search to the value specified in the header. Specify WEBSITE to expand the search to include all customer orders assigned to the website that is defined in the header, or specify GLOBAL to include all customer orders across all websites and stores."),
+    ): CustomerOrders @resolver(class: "Bat\\SalesGraphQl\\Model\\Resolver\\CustomerOrders") @cache(cacheable: false)
+}
+
+input CustomerOrdersFilterInput @doc(description: "Identifies the filter to use for filtering orders.") {
+    number: FilterStringTypeInput @doc(description: "Filters by order number.")
+    status: String @doc(description: "Filters by order status.")
+    date_from: String @doc(description: "Filters by order created date range.")
+    date_to: String @doc(description: "Filters by order created date range.")
+    sort: String @doc(description: "Sort order data by ASC / DESC.")
+}
+
+type CustomerOrder @doc(description: "Contains details about each of the customer's orders.") {
+    order_type: String @doc(description: "Order Type") @resolver(class: "Bat\\SalesGraphQl\\Model\\Resolver\\OrderType")
+    item_name: String @doc(description: "This will return first item name and total number of order.") 
+    order_date: String @doc(description: "Order Date") 
+    payment_deadline_date: String @doc(description: "payment deadline") @resolver(class: "Bat\\SalesGraphQl\\Model\\Resolver\\PaymentDeadline")
+    delivery_details: DeliveryDetails @doc(description: "Order Delivery Detail") @resolver(class: "Bat\\SalesGraphQl\\Model\\Resolver\\DeliveryDetails")
+    return_details: ReturnDetails @doc(description: "Order Return Detail") @resolver(class: "Bat\\SalesGraphQl\\Model\\Resolver\\ReturnDetails")
+    order_amount: OrderAmountNetVatOutput @doc(description: "payment deadline") @resolver(class: "Bat\\SalesGraphQl\\Model\\Resolver\\OrderAmountNetVat")
+    virtual_bank_account: VirtualBankAccountOutput @doc(description: "payment deadline") @resolver(class: "Bat\\SalesGraphQl\\Model\\Resolver\\VirtualBankAccount")
+    items_count: Int @doc(description: "Order item count") @resolver(class: "Bat\\SalesGraphQl\\Model\\Resolver\\OrderItem")
+    is_first_order: Boolean @doc(description: "isFirstOrder status") @resolver(class: "Bat\\SalesGraphQl\\Model\\Resolver\\IsFirstOrder")
+    outlet_owner_name: String @doc(description: "Order Type") @resolver(class: "Bat\\SalesGraphQl\\Model\\Resolver\\OutletOwnerName")
+}
+
+type Query {
+    cancelledOrder: CancelledOrderOutput
+        @resolver(
+            class: "Bat\\SalesGraphQl\\Model\\Resolver\\OrderCancelledNotification"
+        )
+        @doc(description: "This API will show cancelled order.")
+
+    orderShipping: OrderShippingOutput
+        @resolver(
+            class: "Bat\\SalesGraphQl\\Model\\Resolver\\OrderShippingNotification"
+        )
+        @doc(description: "This API will show order shipping/arrival notification.")    
+}
+
+type CancelledOrderOutput {
+    customer_id: Int @doc(description: "Customer id of the login customer")
+    message: String @doc(description: "Message for cancelled order as per status")
+    status: Int @doc(description: "status")
+}
+
+type OrderShippingOutput {
+    customer_id: Int @doc(description: "Customer id of the login customer")
+    message: String @doc(description: "Message for cancelled order as per status")
+    status: Int @doc(description: "status")
+}
+
+type VirtualBankAccountOutput {
+    bank_name: String
+    account_number: String
+    account_holder_name: String
+}
+
+interface OrderItemInterface @doc(description: "Order item details.") @typeResolver(class: "Magento\\SalesGraphQl\\Model\\TypeResolver\\OrderItem") {
+ product_image: String @doc(description: "Product image encrypt") @resolver(class: "Bat\\SalesGraphQl\\Model\\Resolver\\ProductImage")
+ default_attribute: String @doc(description: "Product default attribute") @resolver(class:"Bat\\SalesGraphQl\\Model\\Resolver\\ProductDefaultAttributeValue")
+ is_price_tag: Boolean @doc(description: "Product default attribute") @resolver(class:"Bat\\SalesGraphQl\\Model\\Resolver\\PriceTag")
+}

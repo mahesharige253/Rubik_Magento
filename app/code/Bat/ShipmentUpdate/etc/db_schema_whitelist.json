@@ -1,0 +1,19 @@
+{
+    "sales_order": {
+        "column": {
+            "message_id": true,
+            "message_date": true,
+            "carrier_code": true,
+            "carrier_name": true,
+            "awb_number": true,
+            "tracking_url": true,
+            "shipping_status_code": true,
+            "shipping_status_message": true,
+            "ship_date": true,
+            "action_date": true,
+            "action_time": true,
+            "action": true,
+            "action_local": true
+        }
+    }
+}

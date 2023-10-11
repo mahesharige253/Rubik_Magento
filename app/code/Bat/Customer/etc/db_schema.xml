@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="customer_entity" resource="default" engine="innodb">
+        <column xsi:type="varchar" name="mobilenumber" nullable="true" default="NULL" length="255" comment="Customer Mobile Number"/>
+        <column xsi:type="varchar" name="outlet_id" nullable="true" length="255" comment="Outlet Id"/>
+        <column xsi:type="varchar" name="outlet_pin" nullable="false" length="255" comment="Outlet Pin"/>
+        <column xsi:type="varchar" name="parent_outlet_id" nullable="true" length="255" comment="Parent Outlet Id"/>
+    </table>
+</schema>

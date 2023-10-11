@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <bat_integrations>
+            <bat_order>
+                <eda_order_log>1</eda_order_log>
+                <eda_order_max_failures_allowed>5</eda_order_max_failures_allowed>
+                <order_status_required_to_update_eda>processing</order_status_required_to_update_eda>
+                <eda_order_cron_schedule>*/5 * * * *</eda_order_cron_schedule>
+            </bat_order>
+        </bat_integrations>
+    </default>
+</config>

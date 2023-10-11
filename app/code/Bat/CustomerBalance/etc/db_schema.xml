@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="magento_customerbalance" resource="default" engine="innodb">
+        <column xsi:type="boolean" name="is_credit_customer" nullable="true" default="0" comment="Is Credit Customer"/>
+        <column xsi:type="boolean" name="overdue_flag" nullable="true" default="0" comment="Payment Overdue status"/>
+        <column xsi:type="decimal" name="overdue_amount" scale="4" precision="20" unsigned="false" nullable="false" default="0" comment="Overdue Amount"/>
+    </table>
+</schema>

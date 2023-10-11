@@ -1,0 +1,14 @@
+type Query {
+    consentData: [ConsentDataOutput] @resolver(class: "Bat\\CustomerConsentForm\\Model\\Resolver\\GetConsentData") 
+    @doc(description: "The Consent data query return the data about the Consent Forms")
+}
+
+type ConsentDataOutput @doc(description: "Consent data ouptut gather information about the consent forms") {
+    consent_title: String @doc(description: "Return the title of the consent form")
+    identifier: String @doc(description: "Returns the identifier of the consent form") 
+    link_status: String @doc(description: "Returns whether link is required or not ")
+    content: String @doc(description: "Returns the content of the consent form")
+    consent_required: String @doc(description: "Returns whether consent is required or not")
+    position: String @doc(description: "Returns the position of the consent form")
+    validate_message: String @doc(description: "Returns the validation message if consent is required")
+}

@@ -1,0 +1,8 @@
+.customer-index-edit .file-uploader-area {
+    display: none;
+}
+
+.customer-index-edit .file-uploader-preview .action-remove:before {
+    display: none;
+}
+

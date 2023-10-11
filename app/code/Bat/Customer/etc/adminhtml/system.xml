@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="customer_approval_status" translate="label" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="0">
+            <class>separator-top</class>
+            <label>Customer Approval Status</label>
+            <tab>bat_general_config</tab>
+            <resource>Bat_ProductCarousel::configuration</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label>General Configuration</label>
+                <field id="customer_under_review_heading" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Customer Under Review Heading</label>
+                </field>
+                <field id="customer_under_review_message" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Customer Under Review Message</label>
+                </field>
+                <field id="customer_application_notfound_heading" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Customer Not Found Heading</label>
+                </field>
+                <field id="customer_application_notfound_message" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Customer Not Found Message</label>
+                </field>
+                <field id="customer_application_approved_heading" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Customer Approved Heading</label>
+                </field>
+                <field id="customer_application_approved_message" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Customer Approved Message</label>
+                </field>
+                <field id="customer_application_rejected_heading" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Customer Rejected Heading</label>
+                </field>
+                <field id="customer_application_rejected_message" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Customer Rejected Message</label>
+                </field>
+                <field id="customer_callcenter_number" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Customer Call Center Number</label>
+                </field>
+            </group>
+        </section>
+        <section id="bat_customer" translate="label" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="0">
+            <class>separator-top</class>
+            <label>Customers</label>
+            <tab>bat_general_config</tab>
+            <resource>Bat_Customer::configuration</resource>
+            <group id="registration" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label>Registration</label>
+                <field id="mobile_number_available_message" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Mobile Number Available Message</label>
+                </field>
+                <field id="payment_overdue_message" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Payment Overdue Message</label>
+                </field>
+            </group>
+        </section>
+        <section id="bat_customer_disclosure" translate="label" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="0">
+            <class>separator-top</class>
+            <label>Customer Disclosure Messages</label>
+            <tab>bat_general_config</tab>
+            <resource>Bat_Customer::configuration</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label>Disclosure Status Message</label>
+                <field id="account_disclosure_approved_message" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Account Discloure Approved Message</label>
+                </field>
+                <field id="account_disclosure_rejected_message" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Account Disclosure Rejected Message</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

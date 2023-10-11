@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <bat_customer>
+            <registration>
+                <mobile_number_available_message>Mobile number is already associated with another outlet.</mobile_number_available_message>
+                <payment_overdue_message>You have an overdue payment. Complete your previous order payment, to unlock new orders.</payment_overdue_message>
+                <order_cancelled_message>Your order was canceled as payment was not received.</order_cancelled_message>
+            </registration>
+        </bat_customer>
+    </default>
+</config>
